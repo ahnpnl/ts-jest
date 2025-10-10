@@ -3,6 +3,52 @@ id: options
 title: Options
 ---
 
+### Define config
+
+:::tip
+
+The recommended way to configure Jest with `ts-jest` is using the `defineConfig` helper function. This provides out-of-the-box IntelliSense suggestions in your IDE and type safety for both Jest and `ts-jest` configuration options.
+
+:::
+
+The `defineConfig` function provides full TypeScript type checking for your Jest configuration as well as `ts-jest` config options, helping you catch configuration errors early.
+
+```ts title="jest.config.ts"
+import { defineConfig } from 'ts-jest'
+
+export default defineConfig({
+  // ... Jest config options
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        // ts-jest config options with autocomplete
+        tsconfig: 'tsconfig.json',
+      },
+    ],
+  },
+})
+```
+
+#### Experimental: Option Validation
+
+You can enable experimental option validation to detect typos and unrecognized options:
+
+```ts title="jest.config.ts"
+import { defineConfig } from 'ts-jest'
+
+export default defineConfig({
+  //... Jest config options
+  future: {
+    experimental_validateOptions: true,
+  },
+})
+```
+
+When `experimental_validateOptions` is enabled, `ts-jest` will warn you about unrecognized option keys (e.g., `astTransformer` instead of `astTransformers`), helping you catch configuration typos early.
+
+See [Experimental Features](../experimental.md#option-validation) for more details about experimental features.
+
 ### Introduction
 
 :::caution

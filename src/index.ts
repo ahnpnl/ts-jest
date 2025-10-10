@@ -3,6 +3,7 @@ import type { TsJestTransformerOptions } from './types'
 
 export * from './config'
 export * from './constants'
+export * from './experimental'
 export * from './legacy/compiler'
 export * from './legacy/ts-jest-transformer'
 export * from './legacy/config/config-set'
