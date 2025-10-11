@@ -42,5 +42,9 @@ module.exports = {
       type: 'doc',
       id: 'debugging',
     },
+    {
+      type: 'doc',
+      id: 'experimental',
+    },
   ],
 }
